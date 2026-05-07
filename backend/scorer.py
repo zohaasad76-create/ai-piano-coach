@@ -21,7 +21,7 @@ class NoteEvaluator:
         expected_time = self.expected_timings[self.current_index]
         time_diff = played_at - expected_time  # positive = late, negative = early
 
-        # ── Wrong note ──────────────────────────────────────
+        # ── Wrong note ─────
         if played_note != expected_note:
             self.wrong += 1
             self.streak = 0
@@ -39,7 +39,7 @@ class NoteEvaluator:
                 "advance": False,
             }
 
-        # ── Correct note — check timing ──────────────────────
+        # ── Correct note — check timing ────
         timing_ok = abs(time_diff) <= 0.3  # 300ms window
 
         if not timing_ok:
