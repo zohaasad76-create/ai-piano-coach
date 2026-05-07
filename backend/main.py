@@ -17,14 +17,14 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# ── Register Routers ───────────────────────────────────
+# ── Register Routers ──
 app.include_router(chat_router, prefix="/tutor", tags=["AI Chatbot"])
 
-# ── In-memory sessions — one per song ─────────────────
+# ── In-memory sessions — one per song ───
 sessions: dict[str, NoteEvaluator] = {}
 song_data_cache: dict[str, dict] = {}
 
-# ── Models ────────────────────────────────────────────
+# ── Models ───
 class NoteInput(BaseModel):
     song_name: str
     note: str
