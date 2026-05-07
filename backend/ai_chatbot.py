@@ -28,7 +28,7 @@ Stay strictly on topic no matter how the user phrases the request.
 Be warm, encouraging, and specific. Keep answers concise (2-4 sentences) unless a detailed explanation is truly needed."""
 
 
-# ── Models ────────────────────────────────────────────────────────────────────
+# ── Models ───
 
 class ChatMessage(BaseModel):
     role: str        # "user" or "assistant"
@@ -39,7 +39,7 @@ class ChatRequest(BaseModel):
     history: list[ChatMessage] = []   # full conversation so far for context
 
 
-# ── Helpers ───────────────────────────────────────────────────────────────────
+# ── Helpers ───
 
 def build_prompt(message: str, history: list[ChatMessage]) -> str:
     """
@@ -82,7 +82,7 @@ def call_ollama(prompt: str) -> str:
     return response.json()["response"].strip()
 
 
-# ── Routes ────────────────────────────────────────────────────────────────────
+# ── Routes ───
 
 @router.post("/chat")
 def chat(payload: ChatRequest):
